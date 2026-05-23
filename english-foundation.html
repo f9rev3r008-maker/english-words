@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Foundation — To'liq O'quv Sayt</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #040e16;
+  --bg2:       #071825;
+  --card:      #091f2e;
+  --card2:     #0b2538;
+  --t0:        #0d4f6b;
+  --t1:        #0e7490;
+  --t2:        #0891b2;
+  --t3:        #22d3ee;
+  --t4:        #67e8f9;
+  --t5:        #cffafe;
+  --txt:       #e0f7fa;
+  --soft:      #7ecfe0;
+  --muted:     #3a7a8a;
+  --border:    rgba(8,145,178,0.15);
+  --border2:   rgba(8,145,178,0.30);
+  --glow:      0 0 40px rgba(34,211,238,0.10);
+  --glow2:     0 0 60px rgba(8,145,178,0.20);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;line-height:1.6;}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 5%, rgba(8,145,178,0.12) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 90%, rgba(14,116,144,0.09) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 40% at 55% 40%, rgba(34,211,238,0.04) 0%,transparent 60%);
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(4,14,22,0.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;gap:8px;
+  overflow-x:auto;padding:12px 0;
+  scrollbar-width:none;
+}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-btn{
+  flex-shrink:0;
+  background:transparent;border:1px solid var(--border);
+  color:var(--soft);font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:500;
+  padding:6px 14px;border-radius:20px;cursor:pointer;
+  transition:all 0.2s;white-space:nowrap;
+}
+.nav-btn:hover,.nav-btn.active{
+  background:rgba(8,145,178,0.18);border-color:var(--t2);color:var(--t3);
+}
+.nav-logo{
+  font-family:'Syne',sans-serif;font-weight:900;font-size:1rem;
+  color:var(--t3);margin-right:12px;flex-shrink:0;letter-spacing:-0.5px;
+}
+
+/* HERO */
+.hero{
+  max-width:1280px;margin:0 auto;
+  padding:70px 24px 50px;text-align:center;position:relative;z-index:1;
+}
+.hero-badge{
+  display:inline-block;
+  background:rgba(8,145,178,0.12);border:1px solid var(--t2);
+  color:var(--t3);font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;
+  padding:6px 20px;border-radius:30px;margin-bottom:28px;font-weight:600;
+}
+.hero h1{
+  font-family:'Syne',sans-serif;font-weight:900;
+  font-size:clamp(2.4rem,7vw,5rem);line-height:1.05;letter-spacing:-2px;
+  margin-bottom:20px;
+}
+.hero h1 em{color:var(--t3);font-style:normal;}
+.formula{
+  display:inline-flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;
+  background:var(--card);border:1px solid var(--t2);border-radius:16px;
+  padding:18px 36px;margin:28px auto 20px;box-shadow:var(--glow2);
+  font-size:1.15rem;font-weight:700;color:var(--t4);
+}
+.formula .op{color:var(--muted);font-weight:300;}
+.formula .n{font-family:'Syne',sans-serif;font-size:1.7rem;color:var(--t3);}
+.hero-sub{color:var(--soft);max-width:600px;margin:0 auto;font-size:1rem;}
+
+/* STATS */
+.stats{
+  display:flex;justify-content:center;gap:16px;flex-wrap:wrap;
+  padding:40px 24px;max-width:1280px;margin:0 auto;position:relative;z-index:1;
+}
+.stat{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:22px 36px;text-align:center;min-width:130px;
+  transition:border-color 0.3s,box-shadow 0.3s;
+}
+.stat:hover{border-color:var(--t2);box-shadow:var(--glow);}
+.stat-n{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:900;color:var(--t3);line-height:1;}
+.stat-l{font-size:0.78rem;color:var(--soft);margin-top:6px;font-weight:500;}
+
+/* CONTAINER */
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+
+/* SECTION HEADER */
+.sec-head{padding:60px 0 32px;}
+.sec-label{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(8,145,178,0.10);border:1px solid var(--border2);
+  color:var(--t3);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;margin-bottom:16px;font-weight:600;
+}
+.sec-head h2{
+  font-family:'Syne',sans-serif;font-weight:900;
+  font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-1px;margin-bottom:8px;
+}
+.sec-head p{color:var(--soft);font-size:0.95rem;}
+
+/* TOPIC TABS */
+.topic-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;
+}
+.ttab{
+  background:var(--card);border:1px solid var(--border);
+  color:var(--soft);font-size:0.8rem;font-weight:500;font-family:'DM Sans',sans-serif;
+  padding:7px 14px;border-radius:10px;cursor:pointer;
+  transition:all 0.2s;display:flex;align-items:center;gap:6px;
+}
+.ttab:hover,.ttab.on{background:rgba(8,145,178,0.18);border-color:var(--t2);color:var(--t3);}
+
+/* TOPIC PANEL */
+.topic-panel{display:none;}
+.topic-panel.on{display:block;}
+
+.tp-header{
+  background:var(--card);border:1px solid var(--border2);border-radius:20px;
+  padding:28px 32px;margin-bottom:24px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.tp-icon{
+  width:72px;height:72px;border-radius:16px;
+  background:linear-gradient(135deg,var(--t0),var(--t1));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;flex-shrink:0;box-shadow:0 8px 24px rgba(8,145,178,0.3);
+}
+.tp-meta h3{
+  font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:900;
+  color:var(--t4);margin-bottom:4px;
+}
+.tp-meta .en{color:var(--muted);font-size:0.9rem;font-weight:500;}
+.tp-meta p{color:var(--soft);font-size:0.9rem;margin-top:8px;max-width:600px;}
+
+/* GRID 3 */
+.g3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:24px;}
+.g2{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:20px;margin-bottom:24px;}
+
+/* CARD BASE */
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:22px;transition:border-color 0.3s,transform 0.25s,box-shadow 0.3s;
+}
+.card:hover{border-color:var(--t2);transform:translateY(-2px);box-shadow:var(--glow);}
+.card-title{
+  font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);
+  font-weight:600;margin-bottom:12px;
+}
+.card h4{font-size:1rem;font-weight:700;color:var(--t3);margin-bottom:10px;}
+
+/* VOCAB TABLE */
+.vtable{width:100%;border-collapse:collapse;}
+.vtable th{
+  text-align:left;font-size:0.72rem;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted);font-weight:600;padding:8px 10px;
+  border-bottom:1px solid var(--border);
+}
+.vtable td{
+  padding:10px 10px;border-bottom:1px solid rgba(8,145,178,0.07);
+  font-size:0.88rem;vertical-align:top;
+}
+.vtable tr:last-child td{border-bottom:none;}
+.vtable td:first-child{color:var(--t3);font-weight:600;white-space:nowrap;}
+.vtable td:nth-child(2){color:var(--soft);font-style:italic;}
+.vtable td:nth-child(3){color:var(--txt);}
+.vtable tr:hover td{background:rgba(8,145,178,0.05);}
+
+/* PHRASE CARD */
+.phrase-list{display:flex;flex-direction:column;gap:10px;}
+.phrase-item{
+  background:var(--card2);border:1px solid var(--border);border-radius:12px;
+  padding:14px 16px;transition:border-color 0.2s;
+}
+.phrase-item:hover{border-color:var(--border2);}
+.phrase-en{font-size:0.95rem;font-weight:600;color:var(--t4);margin-bottom:4px;}
+.phrase-uz{font-size:0.85rem;color:var(--soft);}
+.phrase-tip{font-size:0.78rem;color:var(--muted);margin-top:4px;font-style:italic;}
+
+/* EXAMPLE */
+.example-box{
+  background:rgba(8,145,178,0.07);border-left:3px solid var(--t2);
+  border-radius:0 10px 10px 0;padding:14px 16px;margin-top:8px;
+}
+.example-box .en{font-size:0.9rem;color:var(--t3);font-weight:600;margin-bottom:4px;}
+.example-box .uz{font-size:0.83rem;color:var(--soft);}
+
+/* PILLS */
+.pills{display:flex;flex-wrap:wrap;gap:7px;}
+.pill{
+  background:rgba(8,145,178,0.10);border:1px solid rgba(8,145,178,0.2);
+  color:var(--soft);font-size:0.8rem;padding:5px 12px;border-radius:20px;font-weight:500;
+  transition:all 0.2s;
+}
+.pill:hover{background:rgba(8,145,178,0.22);color:var(--t4);border-color:var(--t2);}
+.pill span{color:var(--muted);font-size:0.72rem;margin-left:4px;}
+
+/* DIALOGUE */
+.dialogue{display:flex;flex-direction:column;gap:10px;}
+.d-line{display:flex;gap:10px;align-items:flex-start;}
+.d-line.b{flex-direction:row-reverse;}
+.d-avatar{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+  background:var(--card2);border:1px solid var(--border);
+}
+.d-bubble{
+  background:var(--card2);border:1px solid var(--border);border-radius:12px;
+  padding:10px 14px;max-width:80%;
+}
+.d-line.b .d-bubble{background:rgba(8,145,178,0.15);border-color:var(--border2);}
+.d-en{font-size:0.88rem;font-weight:600;color:var(--txt);}
+.d-uz{font-size:0.78rem;color:var(--soft);margin-top:3px;}
+
+/* TIP BOX */
+.tip{
+  background:rgba(8,145,178,0.08);border:1px solid var(--border2);
+  border-radius:12px;padding:14px 16px;margin-top:16px;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.tip-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+.tip p{font-size:0.85rem;color:var(--soft);}
+.tip strong{color:var(--t3);}
+
+/* WORDS SECTION */
+.words-section{padding:60px 0;}
+.wcat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.wcat{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;
+  transition:border-color 0.3s,box-shadow 0.3s;
+}
+.wcat:hover{border-color:var(--t2);box-shadow:var(--glow);}
+.wcat-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.wcat-ico{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--t0),var(--t1));
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.wcat h3{font-size:1rem;font-weight:700;color:var(--t3);}
+.wcat .sub{font-size:0.72rem;color:var(--muted);}
+
+/* GLOW LINE */
+.gl{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--t1),transparent);opacity:0.3;margin:8px 0;}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);padding:36px 24px;
+  text-align:center;color:var(--muted);font-size:0.85rem;
+  position:relative;z-index:1;
+}
+footer em{color:var(--t2);font-style:normal;}
+
+/* ANIM */
+@keyframes up{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.hero,.stats,.card,.wcat,.phrase-item,.tp-header{animation:up 0.5s ease both;}
+
+@media(max-width:640px){
+  .g3,.g2{grid-template-columns:1fr;}
+  .tp-header{flex-direction:column;}
+  .formula{padding:14px 20px;font-size:1rem;}
+  .formula .n{font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">🇬🇧 ENG</span>
+    <button class="nav-btn active" onclick="scrollTo(0,0)">🏠 Bosh sahifa</button>
+    <button class="nav-btn" onclick="document.getElementById('topics').scrollIntoView({behavior:'smooth'})">📚 10 Mavzu</button>
+    <button class="nav-btn" onclick="document.getElementById('words').scrollIntoView({behavior:'smooth'})">🔤 1000 So'z</button>
+    <button class="nav-btn" onclick="showTab(0)">👤 Shaxsiy</button>
+    <button class="nav-btn" onclick="showTab(1)">⏰ Kundalik</button>
+    <button class="nav-btn" onclick="showTab(2)">💼 Ish/O'qish</button>
+    <button class="nav-btn" onclick="showTab(3)">🍽️ Oziq-ovqat</button>
+    <button class="nav-btn" onclick="showTab(4)">✈️ Sayohat</button>
+    <button class="nav-btn" onclick="showTab(5)">🛍️ Xarid</button>
+    <button class="nav-btn" onclick="showTab(6)">🏃 Sog'liq</button>
+    <button class="nav-btn" onclick="showTab(7)">🌤️ Ob-havo</button>
+    <button class="nav-btn" onclick="showTab(8)">🎬 Bo'sh vaqt</button>
+    <button class="nav-btn" onclick="showTab(9)">🚀 Rejalar</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">✦ English Foundation ✦</div>
+  <h1>Ingliz tilida<br><em>erkin so'zlash</em><br>uchun asos</h1>
+  <div class="formula">
+    <span>Gapirish</span>
+    <span class="op">=</span>
+    <span class="n">10</span>
+    <span>mavzu</span>
+    <span class="op">+</span>
+    <span class="n">1000</span>
+    <span>so'z</span>
+  </div>
+  <p class="hero-sub">Kundalik muloqot uchun kerakli barcha so'zlar, iboralar, misollar va dialoglar — to'liq o'zbek tarjimasida.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">10</div><div class="stat-l">Asosiy mavzu</div></div>
+  <div class="stat"><div class="stat-n">1000</div><div class="stat-l">Asosiy so'z</div></div>
+  <div class="stat"><div class="stat-n">200+</div><div class="stat-l">Foydali ibora</div></div>
+  <div class="stat"><div class="stat-n">50+</div><div class="stat-l">Dialog misoli</div></div>
+  <div class="stat"><div class="stat-n">4</div><div class="stat-l">So'z turkumi</div></div>
+</div>
+
+<div class="gl"></div>
+
+<!-- TOPICS SECTION -->
+<div class="wrap" id="topics">
+  <div class="sec-head">
+    <div class="sec-label">📚 O'quv bo'limi</div>
+    <h2>10 ta asosiy mavzu</h2>
+    <p>Mavzuni tanlang va to'liq ma'lumotni ko'ring</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="topic-tabs">
+    <button class="ttab on" onclick="showTab(0)">👤 Shaxsiy</button>
+    <button class="ttab" onclick="showTab(1)">⏰ Kundalik tartib</button>
+    <button class="ttab" onclick="showTab(2)">💼 Ish/O'qish</button>
+    <button class="ttab" onclick="showTab(3)">🍽️ Oziq-ovqat</button>
+    <button class="ttab" onclick="showTab(4)">✈️ Sayohat</button>
+    <button class="ttab" onclick="showTab(5)">🛍️ Xaridlar</button>
+    <button class="ttab" onclick="showTab(6)">🏃 Sog'liq</button>
+    <button class="ttab" onclick="showTab(7)">🌤️ Ob-havo</button>
+    <button class="ttab" onclick="showTab(8)">🎬 Bo'sh vaqt</button>
+    <button class="ttab" onclick="showTab(9)">🚀 Rejalar</button>
+  </div>
+
+  <!-- ===== TOPIC 1: PERSONAL INFO ===== -->
+  <div class="topic-panel on" id="tp0">
+    <div class="tp-header">
+      <div class="tp-icon">👤</div>
+      <div class="tp-meta">
+        <h3>O'zi haqida ma'lumot</h3>
+        <div class="en">Personal Information</div>
+        <p>Ism, yosh, millat, oila, kasb va qiziqishlar haqida inglizcha gapirish asoslari.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">📖 Asosiy so'zlar — Vocabulary</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>Talaffuz</th><th>O'zbekcha</th></tr>
+          <tr><td>name</td><td>[neym]</td><td>ism</td></tr>
+          <tr><td>surname</td><td>[sɜːrneym]</td><td>familiya</td></tr>
+          <tr><td>age</td><td>[eyj]</td><td>yosh</td></tr>
+          <tr><td>nationality</td><td>[næʃəˈnælɪti]</td><td>millat</td></tr>
+          <tr><td>country</td><td>[ˈkʌntri]</td><td>mamlakat</td></tr>
+          <tr><td>city</td><td>[ˈsɪti]</td><td>shahar</td></tr>
+          <tr><td>address</td><td>[ˈædrɛs]</td><td>manzil</td></tr>
+          <tr><td>job / profession</td><td>[dʒɒb]</td><td>ish / kasb</td></tr>
+          <tr><td>hobby</td><td>[ˈhɒbi]</td><td>qiziqish, hobbu</td></tr>
+          <tr><td>family</td><td>[ˈfæmɪli]</td><td>oila</td></tr>
+          <tr><td>married</td><td>[ˈmærid]</td><td>turmushda</td></tr>
+          <tr><td>single</td><td>[ˈsɪŋɡəl]</td><td>turmush qurmagan</td></tr>
+          <tr><td>language</td><td>[ˈlæŋɡwɪdʒ]</td><td>til</td></tr>
+          <tr><td>birthday</td><td>[ˈbɜːrθdeɪ]</td><td>tug'ilgan kun</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Muhim iboralar — Key Phrases</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">My name is ___.</div>
+            <div class="phrase-uz">Mening ismim ___.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I am from Uzbekistan.</div>
+            <div class="phrase-uz">Men O'zbekistondan.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I am ___ years old.</div>
+            <div class="phrase-uz">Men ___ yoshdaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I live in Tashkent.</div>
+            <div class="phrase-uz">Men Toshkentda yashayman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I work as a teacher.</div>
+            <div class="phrase-uz">Men o'qituvchi bo'lib ishlayman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I speak Uzbek and Russian.</div>
+            <div class="phrase-uz">Men o'zbek va rus tillarini bilaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Nice to meet you!</div>
+            <div class="phrase-uz">Siz bilan tanishganimdan xursandman!</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I am married / single.</div>
+            <div class="phrase-uz">Men turmush qurganman / turmush qurmagan.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have two children.</div>
+            <div class="phrase-uz">Mening ikki farzandim bor.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">My hobby is reading books.</div>
+            <div class="phrase-uz">Mening hobbim — kitob o'qish.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Suhbat namunasi</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Hi! What's your name?</div>
+              <div class="d-uz">Salom! Ismingiz nima?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Hi! My name is Malika. And yours?</div>
+              <div class="d-uz">Salom! Mening ismim Malika. Sizniki-chi?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">I'm Jasur. Where are you from?</div>
+              <div class="d-uz">Men Jasurman. Qaerdansiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">I'm from Samarkand. I'm 24 years old. What about you?</div>
+              <div class="d-uz">Men Samarqanddan. Men 24 yoshdaman. Siz-chi?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">I'm 26 and I work as an engineer in Tashkent.</div>
+              <div class="d-uz">Men 26 yoshdaman va Toshkentda muhandis bo'lib ishlayman.</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Nice to meet you, Jasur!</div>
+              <div class="d-uz">Tanishganimdan xursandman, Jasur!</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>Esda tuting:</strong> "Nice to meet you" — birinchi tanishganda aytiladi. Qayta uchraganda esa "Nice to see you again" deysiz.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">❓ Savol-javob — Questions & Answers</div>
+        <table class="vtable">
+          <tr><th>Savol (inglizcha)</th><th>Savol (o'zbekcha)</th></tr>
+          <tr><td>What is your name?</td><td>Ismingiz nima?</td></tr>
+          <tr><td>How old are you?</td><td>Nechanchi yoshdasiz?</td></tr>
+          <tr><td>Where are you from?</td><td>Qaerdansiz?</td></tr>
+          <tr><td>Where do you live?</td><td>Qayerda yashaysiz?</td></tr>
+          <tr><td>What do you do?</td><td>Nima bilan shug'ullanasiz?</td></tr>
+          <tr><td>Are you married?</td><td>Turmush qurganmisiz?</td></tr>
+          <tr><td>Do you have children?</td><td>Farzandlaringiz bormi?</td></tr>
+          <tr><td>What is your hobby?</td><td>Hobbyingiz nima?</td></tr>
+          <tr><td>Which languages do you speak?</td><td>Qanday tillarni bilasiz?</td></tr>
+          <tr><td>What is your phone number?</td><td>Telefon raqamingiz nechta?</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">🏠 Oila a'zolari — Family Members</div>
+        <div class="pills">
+          <span class="pill">mother <span>— ona</span></span>
+          <span class="pill">father <span>— ota</span></span>
+          <span class="pill">sister <span>— singil/opa</span></span>
+          <span class="pill">brother <span>— aka/uka</span></span>
+          <span class="pill">son <span>— o'g'il</span></span>
+          <span class="pill">daughter <span>— qiz</span></span>
+          <span class="pill">grandmother <span>— buvi</span></span>
+          <span class="pill">grandfather <span>— bobo</span></span>
+          <span class="pill">husband <span>— er</span></span>
+          <span class="pill">wife <span>— xotin</span></span>
+          <span class="pill">uncle <span>— amaki/tog'a</span></span>
+          <span class="pill">aunt <span>— xola/amma</span></span>
+          <span class="pill">cousin <span>— amakivachcha</span></span>
+          <span class="pill">nephew <span>— jiyani (o'g'il)</span></span>
+          <span class="pill">niece <span>— jiyani (qiz)</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 2: DAILY ROUTINE ===== -->
+  <div class="topic-panel" id="tp1">
+    <div class="tp-header">
+      <div class="tp-icon">⏰</div>
+      <div class="tp-meta">
+        <h3>Kundalik tartib</h3>
+        <div class="en">Daily Routine</div>
+        <p>Ertalabdan kechgacha qilinadigan kundalik ishlar va odatlar haqida gapirish.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">📖 Kundalik fe'llar — Daily Verbs</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>Talaffuz</th><th>O'zbekcha</th></tr>
+          <tr><td>wake up</td><td>[weyk ʌp]</td><td>uyg'onish</td></tr>
+          <tr><td>get up</td><td>[ɡɛt ʌp]</td><td>o'rnidan turish</td></tr>
+          <tr><td>brush teeth</td><td>[brʌʃ tiːθ]</td><td>tish yuvish</td></tr>
+          <tr><td>wash face</td><td>[wɒʃ feɪs]</td><td>yuz yuvish</td></tr>
+          <tr><td>take a shower</td><td>[teɪk ə ˈʃaʊər]</td><td>dush qabul qilish</td></tr>
+          <tr><td>have breakfast</td><td>[hæv ˈbrɛkfəst]</td><td>nonushta qilish</td></tr>
+          <tr><td>go to work/school</td><td>[ɡəʊ tə wɜːrk]</td><td>ishga/maktabga borish</td></tr>
+          <tr><td>have lunch</td><td>[hæv lʌntʃ]</td><td>tushlik qilish</td></tr>
+          <tr><td>come back home</td><td>[kʌm bæk həʊm]</td><td>uyga qaytish</td></tr>
+          <tr><td>have dinner</td><td>[hæv ˈdɪnər]</td><td>kechki ovqat yeyish</td></tr>
+          <tr><td>watch TV</td><td>[wɒtʃ tiːˈviː]</td><td>televizor ko'rish</td></tr>
+          <tr><td>go to bed</td><td>[ɡəʊ tə bɛd]</td><td>yotishga ketish</td></tr>
+          <tr><td>fall asleep</td><td>[fɔːl əˈsliːp]</td><td>uxlab qolish</td></tr>
+          <tr><td>exercise</td><td>[ˈɛksəsaɪz]</td><td>mashq qilish</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🌅 Kundalik jadval — My Typical Day</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">I wake up at 6:30 in the morning.</div>
+            <div class="phrase-uz">Men ertalab soat 6:30 da uyg'onaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I brush my teeth and wash my face.</div>
+            <div class="phrase-uz">Tishimni yuvib, yuzimni yuvaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I usually have eggs and tea for breakfast.</div>
+            <div class="phrase-uz">Men odatda nonushtada tuxum va choy ichaман.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I leave home at 8 o'clock.</div>
+            <div class="phrase-uz">Men soat 8 da uydan chiqaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have lunch at noon / at 12 pm.</div>
+            <div class="phrase-uz">Men tushlikni soat 12 da qilaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I get home around 6 pm.</div>
+            <div class="phrase-uz">Men soat 6 atrofida uyga qaytaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I usually relax and watch TV in the evening.</div>
+            <div class="phrase-uz">Men kechqurun odatda dam olaman va TV ko'raman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I go to bed at 11 pm.</div>
+            <div class="phrase-uz">Men soat 23:00 da yotaman.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Kundalik tartib</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">What time do you usually wake up?</div>
+              <div class="d-uz">Siz odatda qachon uyg'onasiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">I wake up at 7 am every day.</div>
+              <div class="d-uz">Men har kuni ertalab soat 7 da uyg'onaman.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Do you exercise in the morning?</div>
+              <div class="d-uz">Siz ertalab mashq qilasizmi?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, I jog for 30 minutes before breakfast.</div>
+              <div class="d-uz">Ha, men nonushtadan oldin 30 daqiqa yuguraman.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">What time do you go to bed?</div>
+              <div class="d-uz">Qachon yotasiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Usually around 10 or 11 at night.</div>
+              <div class="d-uz">Odatda kechqurun soat 10-11 atrofida.</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>Grammatika:</strong> Kundalik odatlar uchun <strong>Simple Present</strong> ishlatiladi: I wake up, She goes, He eats. "Usually", "always", "often", "sometimes", "never" — chastota so'zlari.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:24px">
+      <div class="card-title">⏱️ Vaqt ifodalari — Time Expressions</div>
+      <div class="pills">
+        <span class="pill">in the morning <span>— ertalab</span></span>
+        <span class="pill">in the afternoon <span>— tushdan keyin</span></span>
+        <span class="pill">in the evening <span>— kechqurun</span></span>
+        <span class="pill">at night <span>— kechasi</span></span>
+        <span class="pill">at noon <span>— tushda</span></span>
+        <span class="pill">at midnight <span>— yarim tunda</span></span>
+        <span class="pill">every day <span>— har kuni</span></span>
+        <span class="pill">always <span>— doim</span></span>
+        <span class="pill">usually <span>— odatda</span></span>
+        <span class="pill">sometimes <span>— ba'zan</span></span>
+        <span class="pill">never <span>— hech qachon</span></span>
+        <span class="pill">twice a week <span>— haftada ikki marta</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 3: WORK & STUDY ===== -->
+  <div class="topic-panel" id="tp2">
+    <div class="tp-header">
+      <div class="tp-icon">💼</div>
+      <div class="tp-meta">
+        <h3>Ish va O'qish</h3>
+        <div class="en">Work and Study</div>
+        <p>Kasb, ish joyi, maktab va universitet hayoti haqida inglizcha muloqot.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">📖 Kasblar — Professions</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>teacher / educator</td><td>o'qituvchi</td></tr>
+          <tr><td>doctor / physician</td><td>shifokor</td></tr>
+          <tr><td>engineer</td><td>muhandis</td></tr>
+          <tr><td>programmer / developer</td><td>dasturchi</td></tr>
+          <tr><td>lawyer</td><td>yurist, advokat</td></tr>
+          <tr><td>accountant</td><td>buxgalter</td></tr>
+          <tr><td>manager</td><td>menejer, boshqaruvchi</td></tr>
+          <tr><td>student</td><td>talaba / o'quvchi</td></tr>
+          <tr><td>nurse</td><td>hamshira</td></tr>
+          <tr><td>driver</td><td>haydovchi</td></tr>
+          <tr><td>chef / cook</td><td>oshpaz</td></tr>
+          <tr><td>designer</td><td>dizayner</td></tr>
+          <tr><td>businessman</td><td>tadbirkor</td></tr>
+          <tr><td>architect</td><td>arxitektor</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Ish haqida iboralar</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">I work at a company / hospital / school.</div>
+            <div class="phrase-uz">Men kompaniyada / kasalxonada / maktabda ishlayman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I am a student at Tashkent University.</div>
+            <div class="phrase-uz">Men Toshkent universitetining talabасiman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have been working here for 3 years.</div>
+            <div class="phrase-uz">Men bu yerda 3 yildan beri ishlayman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">My salary is good / not bad.</div>
+            <div class="phrase-uz">Mening maoshim yaxshi / yomon emas.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have a meeting at 3 pm.</div>
+            <div class="phrase-uz">Mening soat 3 da uchrashuv bor.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I study English twice a week.</div>
+            <div class="phrase-uz">Men haftada ikki marta ingliz tili o'qiyman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have a deadline tomorrow.</div>
+            <div class="phrase-uz">Mening ertaga topshirish muddatim bor.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I am looking for a new job.</div>
+            <div class="phrase-uz">Men yangi ish qidiryapman.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Ish haqida</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">What do you do for a living?</div>
+              <div class="d-uz">Siz nima bilan kun ko'rasiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">I'm a software developer. I work for a tech company.</div>
+              <div class="d-uz">Men dasturchi. IT kompaniyada ishlayman.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Do you enjoy your job?</div>
+              <div class="d-uz">Ishingiz yoqadimi?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, very much! It's creative and well-paid.</div>
+              <div class="d-uz">Ha, juda! Bu ijodiy va yaxshi maoshli ish.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">How long have you been working there?</div>
+              <div class="d-uz">U yerda qancha vaqtdan beri ishlaysiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">For about two years now.</div>
+              <div class="d-uz">Taxminan ikki yildan beri.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 4: FOOD ===== -->
+  <div class="topic-panel" id="tp3">
+    <div class="tp-header">
+      <div class="tp-icon">🍽️</div>
+      <div class="tp-meta">
+        <h3>Oziq-ovqat va Kafe</h3>
+        <div class="en">Food and Dining</div>
+        <p>Taomlar, ichimliklar, restoranda buyurtma berish va do'konda xarid qilish.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">🍕 Taomlar — Food Items</div>
+        <div class="pills">
+          <span class="pill">bread <span>— non</span></span>
+          <span class="pill">rice <span>— guruch/sholi</span></span>
+          <span class="pill">meat <span>— go'sht</span></span>
+          <span class="pill">chicken <span>— tovuq</span></span>
+          <span class="pill">fish <span>— baliq</span></span>
+          <span class="pill">egg <span>— tuxum</span></span>
+          <span class="pill">soup <span>— sho'rva</span></span>
+          <span class="pill">salad <span>— salat</span></span>
+          <span class="pill">pizza <span>— pitsa</span></span>
+          <span class="pill">burger <span>— burger</span></span>
+          <span class="pill">pasta <span>— pasta</span></span>
+          <span class="pill">vegetables <span>— sabzavotlar</span></span>
+          <span class="pill">fruit <span>— meva</span></span>
+          <span class="pill">cake <span>— tort</span></span>
+          <span class="pill">dessert <span>— shirinlik</span></span>
+          <span class="pill">plov <span>— palov (osh)</span></span>
+          <span class="pill">kebab <span>— kabob</span></span>
+          <span class="pill">noodles <span>— lokshina</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🥤 Ichimliklar — Drinks</div>
+        <div class="pills">
+          <span class="pill">water <span>— suv</span></span>
+          <span class="pill">tea <span>— choy</span></span>
+          <span class="pill">coffee <span>— qahva</span></span>
+          <span class="pill">juice <span>— sharbat</span></span>
+          <span class="pill">milk <span>— sut</span></span>
+          <span class="pill">cola / soda <span>— kola/limonad</span></span>
+          <span class="pill">ayran <span>— ayron</span></span>
+          <span class="pill">smoothie <span>— smuti</span></span>
+          <span class="pill">hot chocolate <span>— issiq shokolad</span></span>
+          <span class="pill">mineral water <span>— mineral suv</span></span>
+        </div>
+        <br>
+        <div class="card-title">ta'm — taste</div>
+        <div class="pills">
+          <span class="pill">delicious <span>— mazali</span></span>
+          <span class="pill">tasty <span>— yoqimli</span></span>
+          <span class="pill">sweet <span>— shirin</span></span>
+          <span class="pill">sour <span>— nordon</span></span>
+          <span class="pill">spicy <span>— achchiq</span></span>
+          <span class="pill">salty <span>— sho'r</span></span>
+          <span class="pill">bitter <span>— achchiq (achinqiroq)</span></span>
+          <span class="pill">fresh <span>— yangi/toza</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Restoranda</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">👨‍🍳</div>
+            <div class="d-bubble">
+              <div class="d-en">Good evening! Table for two?</div>
+              <div class="d-uz">Xayrli kech! Ikki kishilik stol?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, please. Can we have the menu?</div>
+              <div class="d-uz">Ha, iltimos. Menyu berasizmi?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">👨‍🍳</div>
+            <div class="d-bubble">
+              <div class="d-en">Of course. Are you ready to order?</div>
+              <div class="d-uz">Albatta. Buyurtma berishga tayyormisiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">I'll have the chicken soup and grilled fish, please.</div>
+              <div class="d-uz">Menga tovuq sho'rva va qovurilgan baliq bering.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">👨‍🍳</div>
+            <div class="d-bubble">
+              <div class="d-en">What would you like to drink?</div>
+              <div class="d-uz">Nima ichasiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Green tea, please. And can I have the bill at the end?</div>
+              <div class="d-uz">Ko'k choy iltimos. Va oxirida hisob-kitob qilsak bo'ladimi?</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>"I'll have..."</strong> — restoranda buyurtma berish uchun eng tabiiy ibora. "Can I get..." ham ishlatiladi (Amerika inglizchasi).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:24px">
+      <div class="card-title">💬 Restoran iboralari — Restaurant Phrases</div>
+      <div class="g2" style="margin:0">
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>A table for ___, please.</td><td>___ kishilik stol bo'ladimi?</td></tr>
+          <tr><td>Can I see the menu?</td><td>Menyuni ko'rsatassizmi?</td></tr>
+          <tr><td>I'd like to order...</td><td>Men... buyurtma bermoqchiman.</td></tr>
+          <tr><td>What do you recommend?</td><td>Nimani tavsiya qilasiz?</td></tr>
+          <tr><td>Is this dish spicy?</td><td>Bu taom achchiqmi?</td></tr>
+          <tr><td>I'm allergic to nuts.</td><td>Menda yong'oqqa allergiya bor.</td></tr>
+          <tr><td>The food is delicious!</td><td>Taom juda mazali!</td></tr>
+          <tr><td>Check/bill, please.</td><td>Hisob-kitob qilaylik.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 5: TRAVEL ===== -->
+  <div class="topic-panel" id="tp4">
+    <div class="tp-header">
+      <div class="tp-icon">✈️</div>
+      <div class="tp-meta">
+        <h3>Sayohat va Transport</h3>
+        <div class="en">Travel and Transport</div>
+        <p>Yo'nalish so'rash, chipta olish, mehmonxona va transport haqida muloqot.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">📖 Transport so'zlari</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>airplane / flight</td><td>samolyot / reyx</td></tr>
+          <tr><td>train</td><td>poyezd</td></tr>
+          <tr><td>bus</td><td>avtobus</td></tr>
+          <tr><td>taxi / cab</td><td>taksi</td></tr>
+          <tr><td>subway / metro</td><td>metro</td></tr>
+          <tr><td>ticket</td><td>chipta</td></tr>
+          <tr><td>passport</td><td>pasport</td></tr>
+          <tr><td>luggage / baggage</td><td>bagaj</td></tr>
+          <tr><td>hotel</td><td>mehmonxona</td></tr>
+          <tr><td>airport</td><td>aeroport</td></tr>
+          <tr><td>station</td><td>stansiya, bekat</td></tr>
+          <tr><td>departure</td><td>jo'nab ketish</td></tr>
+          <tr><td>arrival</td><td>kelish</td></tr>
+          <tr><td>visa</td><td>viza</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Sayohat iboralari</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">Excuse me, how do I get to the airport?</div>
+            <div class="phrase-uz">Kechirasiz, aeroportga qanday boraman?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I'd like a ticket to London, please.</div>
+            <div class="phrase-uz">Menga Londonga chipta bering iltimos.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Is this seat taken?</div>
+            <div class="phrase-uz">Bu joy bandmi?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Where is the nearest bus stop?</div>
+            <div class="phrase-uz">Eng yaqin avtobus bekati qayerda?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">How long does it take to get there?</div>
+            <div class="phrase-uz">U yerga borish qancha vaqt oladi?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have a reservation. My name is ___.</div>
+            <div class="phrase-uz">Mening broniyam bor. Ismim ___.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Can I have a window seat?</div>
+            <div class="phrase-uz">Deraza yonidan joy bera olasizmi?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">My flight is delayed.</div>
+            <div class="phrase-uz">Mening reyxim kechikdi.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Mehmonxonada</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">👩‍💼</div>
+            <div class="d-bubble">
+              <div class="d-en">Good morning! Welcome to Grand Hotel.</div>
+              <div class="d-uz">Xayrli tong! Grand Mehmonxonasiga xush kelibsiz.</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Hi, I have a booking under the name Aliyev.</div>
+              <div class="d-uz">Salom, Aliyev nomi ostida broniyam bor.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">👩‍💼</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, a double room for 3 nights. Here's your key.</div>
+              <div class="d-uz">Ha, 3 kunlik ikki kishilik xona. Mana kalitingiz.</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">What time is breakfast served?</div>
+              <div class="d-uz">Nonushta qaysi vaqtda beriladi?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">👩‍💼</div>
+            <div class="d-bubble">
+              <div class="d-en">From 7 to 10 in the morning. Enjoy your stay!</div>
+              <div class="d-uz">Ertalab 7 dan 10 gacha. Yaxshi dam oling!</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>Yo'nalish so'rash:</strong> Turn left — chapga buring. Turn right — o'ngga buring. Go straight — to'g'ri boring. At the corner — burchakda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 6: SHOPPING ===== -->
+  <div class="topic-panel" id="tp5">
+    <div class="tp-header">
+      <div class="tp-icon">🛍️</div>
+      <div class="tp-meta">
+        <h3>Xaridlar</h3>
+        <div class="en">Shopping</div>
+        <p>Do'konda narx so'rash, kiyim tanlash, to'lov qilish va o'lchamlar haqida muloqot.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">📖 Xarid so'zlari</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>price / cost</td><td>narx / qiymat</td></tr>
+          <tr><td>size</td><td>o'lcham</td></tr>
+          <tr><td>colour / color</td><td>rang</td></tr>
+          <tr><td>receipt</td><td>kvitansiya / chek</td></tr>
+          <tr><td>discount / sale</td><td>chegirma</td></tr>
+          <tr><td>cash / card</td><td>naqd / karta</td></tr>
+          <tr><td>fitting room</td><td>kiyinish xonasi</td></tr>
+          <tr><td>refund</td><td>qaytarib berish</td></tr>
+          <tr><td>exchange</td><td>almashtirish</td></tr>
+          <tr><td>expensive</td><td>qimmat</td></tr>
+          <tr><td>cheap / affordable</td><td>arzon / qo'lga tegimli</td></tr>
+          <tr><td>brand</td><td>brend</td></tr>
+          <tr><td>quality</td><td>sifat</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👗 Kiyimlar — Clothes</div>
+        <div class="pills">
+          <span class="pill">shirt <span>— ko'ylak</span></span>
+          <span class="pill">t-shirt <span>— futbolka</span></span>
+          <span class="pill">trousers/pants <span>— shim</span></span>
+          <span class="pill">jeans <span>— jinsi</span></span>
+          <span class="pill">dress <span>— ko'ylak (ayol)</span></span>
+          <span class="pill">skirt <span>— yubka</span></span>
+          <span class="pill">jacket <span>— jacket</span></span>
+          <span class="pill">coat <span>— palto</span></span>
+          <span class="pill">shoes <span>— poyabzal</span></span>
+          <span class="pill">boots <span>— etik</span></span>
+          <span class="pill">sneakers <span>— krossovka</span></span>
+          <span class="pill">hat <span>— shlyapa/do'ppi</span></span>
+          <span class="pill">scarf <span>— sharf</span></span>
+          <span class="pill">gloves <span>— qo'lqop</span></span>
+          <span class="pill">underwear <span>— ichki kiyim</span></span>
+          <span class="pill">socks <span>— paypoq</span></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Do'konda</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">👗</div>
+            <div class="d-bubble">
+              <div class="d-en">Can I help you?</div>
+              <div class="d-uz">Sizga yordam beraymi?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, I'm looking for a blue shirt, size medium.</div>
+              <div class="d-uz">Ha, men o'rta o'lchamdagi ko'k ko'ylak qidiryapman.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">👗</div>
+            <div class="d-bubble">
+              <div class="d-en">Here you go. Would you like to try it on?</div>
+              <div class="d-uz">Mana. Kiyib ko'rmoqchimisiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes please. Where is the fitting room?</div>
+              <div class="d-uz">Ha iltimos. Kiyinish xonasi qayerda?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">👗</div>
+            <div class="d-bubble">
+              <div class="d-en">It's on your right. How much is your budget?</div>
+              <div class="d-uz">O'ng tomonda. Byudjetingiz qancha?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Around 50 dollars. Do you have any discounts?</div>
+              <div class="d-uz">50 dollar atrofida. Chegirmalaringiz bormi?</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>O'lchamlar:</strong> XS, S, M, L, XL, XXL. Poyabzal o'lchamlari: UK va US farq qiladi. "What size are you?" — O'lchamingiz qancha?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 7: HEALTH ===== -->
+  <div class="topic-panel" id="tp6">
+    <div class="tp-header">
+      <div class="tp-icon">🏃</div>
+      <div class="tp-meta">
+        <h3>Sog'liq va Sport</h3>
+        <div class="en">Health and Sports</div>
+        <p>O'zini his qilish, shifokor qabuli, kasallik belgilari va sport haqida muloqot.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">🏥 Kasallik belgilari — Symptoms</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>headache</td><td>bosh og'riq</td></tr>
+          <tr><td>stomachache</td><td>qorin og'riq</td></tr>
+          <tr><td>fever / temperature</td><td>isitma / harorat</td></tr>
+          <tr><td>cough</td><td>yo'tal</td></tr>
+          <tr><td>cold / flu</td><td>shamollash / gripp</td></tr>
+          <tr><td>sore throat</td><td>tomoq og'riq</td></tr>
+          <tr><td>runny nose</td><td>burun oqishi</td></tr>
+          <tr><td>nausea</td><td>ko'ngil aynish</td></tr>
+          <tr><td>dizzy</td><td>bosh aylanishi</td></tr>
+          <tr><td>tired / exhausted</td><td>charchagan / holdan toygan</td></tr>
+          <tr><td>pain</td><td>og'riq</td></tr>
+          <tr><td>allergy</td><td>allergiya</td></tr>
+          <tr><td>medicine / pill</td><td>dori / tabletkа</td></tr>
+          <tr><td>prescription</td><td>retsept</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Shifokor qabuli iboralari</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">I don't feel well.</div>
+            <div class="phrase-uz">O'zimni yaxshi his qilmayapman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have a headache / stomachache.</div>
+            <div class="phrase-uz">Boshim / qorim og'riyapti.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I have a fever. My temperature is 38.</div>
+            <div class="phrase-uz">Menda isitma bor. Haroratim 38.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I've been sick for 3 days.</div>
+            <div class="phrase-uz">3 kundan beri kasal yotibman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I'd like to make an appointment with a doctor.</div>
+            <div class="phrase-uz">Shifokorga qabul uchun yozilmoqchiman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Is it serious?</div>
+            <div class="phrase-uz">Bu jiddiyми?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">How often should I take this medicine?</div>
+            <div class="phrase-uz">Bu dорини qancha vaqtda bir marta ichishim kerak?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I feel much better now, thank you.</div>
+            <div class="phrase-uz">Hozir o'zimni ancha yaxshi his qilyapman, rahmat.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚽ Sport turlari — Sports</div>
+        <div class="pills">
+          <span class="pill">football/soccer <span>— futbol</span></span>
+          <span class="pill">basketball <span>— basketbol</span></span>
+          <span class="pill">tennis <span>— tennis</span></span>
+          <span class="pill">swimming <span>— suzish</span></span>
+          <span class="pill">running <span>— yugurish</span></span>
+          <span class="pill">cycling <span>— velosiped</span></span>
+          <span class="pill">gym / fitness <span>— sport zali</span></span>
+          <span class="pill">volleyball <span>— voleybol</span></span>
+          <span class="pill">boxing <span>— boks</span></span>
+          <span class="pill">martial arts <span>— jangovar san'at</span></span>
+          <span class="pill">yoga <span>— yoga</span></span>
+          <span class="pill">weightlifting <span>— og'irlik ko'tarish</span></span>
+        </div>
+        <br>
+        <div class="example-box">
+          <div class="en">I play football twice a week. I go to the gym every morning.</div>
+          <div class="uz">Men haftada ikki marta futbol o'ynayman. Men har kuni ertalab sport zaliga boraman.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 8: WEATHER ===== -->
+  <div class="topic-panel" id="tp7">
+    <div class="tp-header">
+      <div class="tp-icon">🌤️</div>
+      <div class="tp-meta">
+        <h3>Ob-havo va Tabiat</h3>
+        <div class="en">Weather and Nature</div>
+        <p>Fasllar, bugungi ob-havo, iqlim va tabiat hodisalari haqida gapirish.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">🌦️ Ob-havo so'zlari — Weather Words</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>sunny</td><td>quyoshli</td></tr>
+          <tr><td>cloudy</td><td>bulutli</td></tr>
+          <tr><td>rainy</td><td>yomg'irli</td></tr>
+          <tr><td>snowy</td><td>qorli</td></tr>
+          <tr><td>windy</td><td>shamоlли</td></tr>
+          <tr><td>foggy</td><td>tumanli</td></tr>
+          <tr><td>hot</td><td>issiq</td></tr>
+          <tr><td>cold</td><td>sovuq</td></tr>
+          <tr><td>warm</td><td>iliq</td></tr>
+          <tr><td>cool</td><td>salqin</td></tr>
+          <tr><td>temperature</td><td>harorat</td></tr>
+          <tr><td>storm</td><td>bo'ron</td></tr>
+          <tr><td>thunder</td><td>momaqaldiroq</td></tr>
+          <tr><td>rainbow</td><td>kamalak</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🍂 Fasllar — Seasons</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">Spring — April, May</div>
+            <div class="phrase-uz">Bahor — Aprel, May. Ilix, gullar ochiladi.</div>
+            <div class="phrase-tip">It's warm and flowers bloom.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Summer — June, July, August</div>
+            <div class="phrase-uz">Yoz — Iyun, Iyul, Avgust. Juda issiq bo'ladi.</div>
+            <div class="phrase-tip">It's very hot and sunny.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Autumn/Fall — September, October</div>
+            <div class="phrase-uz">Kuz — Sentabr, Oktabr. Barglar to'kiladi.</div>
+            <div class="phrase-tip">Leaves fall, it gets cooler.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Winter — December, January, February</div>
+            <div class="phrase-uz">Qish — Dekabr, Yanvar, Fevral. Qor yog'adi.</div>
+            <div class="phrase-tip">It's cold and snows a lot.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Ob-havo haqida gapirish</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">What's the weather like today?</div>
+            <div class="phrase-uz">Bugun ob-havo qanday?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">It's sunny and warm today.</div>
+            <div class="phrase-uz">Bugun quyoshli va iliq.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">It's raining / snowing outside.</div>
+            <div class="phrase-uz">Tashqarida yomg'ir / qor yog'yapti.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">The temperature is 35 degrees.</div>
+            <div class="phrase-uz">Harorat 35 daraja.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">It's going to rain tomorrow.</div>
+            <div class="phrase-uz">Ertaga yomg'ir yog'adi.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Don't forget your umbrella!</div>
+            <div class="phrase-uz">Soyabonni unutma!</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I love hot / cold weather.</div>
+            <div class="phrase-uz">Men issiq / sovuq havoni yaxshi ko'raman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">The weather in Uzbekistan is very hot in summer.</div>
+            <div class="phrase-uz">O'zbekistonda yozda ob-havo juda issiq bo'ladi.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 9: FREE TIME ===== -->
+  <div class="topic-panel" id="tp8">
+    <div class="tp-header">
+      <div class="tp-icon">🎬</div>
+      <div class="tp-meta">
+        <h3>Bo'sh vaqt va O'yin-kulgi</h3>
+        <div class="en">Free Time and Entertainment</div>
+        <p>Kinolar, musiqa, kitoblar, o'yinlar va hordiq haqida inglizcha muloqot.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">🎯 Ko'ngilochar so'zlar</div>
+        <table class="vtable">
+          <tr><th>Inglizcha</th><th>O'zbekcha</th></tr>
+          <tr><td>movie / film</td><td>kino / film</td></tr>
+          <tr><td>music</td><td>musiqa</td></tr>
+          <tr><td>book</td><td>kitob</td></tr>
+          <tr><td>game / video game</td><td>o'yin / video o'yin</td></tr>
+          <tr><td>concert</td><td>konsert</td></tr>
+          <tr><td>theatre / theater</td><td>teatr</td></tr>
+          <tr><td>museum</td><td>muzey</td></tr>
+          <tr><td>park</td><td>bog', park</td></tr>
+          <tr><td>travel</td><td>sayohat</td></tr>
+          <tr><td>photography</td><td>fotografiya, surat olish</td></tr>
+          <tr><td>cooking</td><td>pishirish</td></tr>
+          <tr><td>painting</td><td>rasm chizish</td></tr>
+          <tr><td>dancing</td><td>raqs tushish</td></tr>
+          <tr><td>hiking</td><td>tog' sayr</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Qiziqishlar haqida iboralar</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">What do you do in your free time?</div>
+            <div class="phrase-uz">Bo'sh vaqtda nima qilasiz?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I love watching action movies.</div>
+            <div class="phrase-uz">Men uyg'ur/jangovar filmlar ko'rishni yaxshi ko'raman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I enjoy reading fantasy novels.</div>
+            <div class="phrase-uz">Men fantastik romanlar o'qishdan zavq olaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I'm into photography lately.</div>
+            <div class="phrase-uz">So'nggi paytda fotografiyaga qiziqib qoldim.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">Would you like to go to the cinema tonight?</div>
+            <div class="phrase-uz">Bugun kechqurun kinoga boramizmi?</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">That movie was amazing / boring!</div>
+            <div class="phrase-uz">U film zo'r edi / zerikarli edi!</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I listen to music every day.</div>
+            <div class="phrase-uz">Men har kuni musiqa tinglаyman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">My favourite genre is pop / rock / classical.</div>
+            <div class="phrase-uz">Mening sevimli janrim — pop / rok / klassik musiqa.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Kinoga taklif</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Hey, are you free this weekend?</div>
+              <div class="d-uz">Hey, shu hafta oxirida bo'sh yurmasizmi?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, I don't have any plans. Why?</div>
+              <div class="d-uz">Ha, hech qanday rejam yo'q. Nega?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Would you like to watch the new Marvel movie?</div>
+              <div class="d-uz">Yangi Marvel filmini ko'rmoqchimisiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">That sounds great! What time does it start?</div>
+              <div class="d-uz">Ajoyib eshitiladi! Qachon boshlanadi?</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">At 7 pm. I'll buy the tickets online.</div>
+              <div class="d-uz">Kechqurun soat 7 da. Chiptalarni onlayn olaman.</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>"I'm into..."</strong> — biror narsaga qiziqishni bildiradi. <strong>"I can't stand..."</strong> — biror narsani yoqtirmaslikni bildiradi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOPIC 10: FUTURE PLANS ===== -->
+  <div class="topic-panel" id="tp9">
+    <div class="tp-header">
+      <div class="tp-icon">🚀</div>
+      <div class="tp-meta">
+        <h3>Kelajakdagi rejalar</h3>
+        <div class="en">Future Plans</div>
+        <p>Maqsadlar, orzular, rejalashtirilgan ishlar va niyatlar haqida inglizcha muloqot.</p>
+      </div>
+    </div>
+
+    <div class="g3">
+      <div class="card">
+        <div class="card-title">📖 Kelajak grammatikasi</div>
+        <table class="vtable">
+          <tr><th>Struktura</th><th>Ishlatilishi</th><th>Misol</th></tr>
+          <tr><td>will + verb</td><td>qaror, bashorat</td><td>I will call you tomorrow.</td></tr>
+          <tr><td>going to + verb</td><td>reja, niyat</td><td>I'm going to study English.</td></tr>
+          <tr><td>want to + verb</td><td>istak</td><td>I want to travel to Europe.</td></tr>
+          <tr><td>would like to</td><td>muloyim istak</td><td>I'd like to learn programming.</td></tr>
+          <tr><td>plan to + verb</td><td>aniq reja</td><td>I plan to open a business.</td></tr>
+          <tr><td>hope to + verb</td><td>umid</td><td>I hope to get a promotion.</td></tr>
+          <tr><td>dream of + -ing</td><td>orzu</td><td>I dream of visiting Japan.</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💬 Rejalar haqida iboralar</div>
+        <div class="phrase-list">
+          <div class="phrase-item">
+            <div class="phrase-en">I'm going to start a new course next month.</div>
+            <div class="phrase-uz">Men keyingi oy yangi kurs boshlamoqchiman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I plan to travel to Turkey this summer.</div>
+            <div class="phrase-uz">Men bu yozda Turkiyaga sayohat qilmoqchiman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">My goal is to learn English fluently.</div>
+            <div class="phrase-uz">Mening maqsadim — ingliz tilini erkin o'rganish.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I want to buy a new apartment next year.</div>
+            <div class="phrase-uz">Kelasi yil yangi kvartira sotib olmoqchiman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I hope to get a better job in the future.</div>
+            <div class="phrase-uz">Kelajakda yanada yaxshi ish topishga umid qilaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">I dream of starting my own business.</div>
+            <div class="phrase-uz">O'z biznesimni ochish haqida orzu qilaman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">In five years, I see myself as a manager.</div>
+            <div class="phrase-uz">Besh yildan so'ng o'zimni menejer sifatida ko'raman.</div>
+          </div>
+          <div class="phrase-item">
+            <div class="phrase-en">What are your plans for the future?</div>
+            <div class="phrase-uz">Kelajak uchun rejalaringiz nima?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎭 Dialog — Orzular haqida</div>
+        <div class="dialogue">
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Where do you see yourself in 5 years?</div>
+              <div class="d-uz">O'zingizni 5 yildan keyin qanday ko'rasiz?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">I hope to finish university and start my own IT company.</div>
+              <div class="d-uz">Universitetni tamomlab, o'z IT kompaniyamni ochishga umid qilaman.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">That's a great goal! Do you have any specific plans?</div>
+              <div class="d-uz">Bu ajoyib maqsad! Aniq rejalaringiz bormi?</div>
+            </div>
+          </div>
+          <div class="d-line b">
+            <div class="d-avatar">👩</div>
+            <div class="d-bubble">
+              <div class="d-en">Yes, I'm going to take programming courses this year and save some money.</div>
+              <div class="d-uz">Ha, bu yil dasturlash kurslarini olmoqchiman va pul yig'moqchiman.</div>
+            </div>
+          </div>
+          <div class="d-line">
+            <div class="d-avatar">🧑</div>
+            <div class="d-bubble">
+              <div class="d-en">Good luck! I believe you'll achieve it.</div>
+              <div class="d-uz">Omad tilayman! Ishonaman, erishасиз.</div>
+            </div>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <p><strong>"Will"</strong> — ani qmagan va spontan qararlar uchun. <strong>"Going to"</strong> — oldindan rejalashtirilgan niyatlar uchun. Ikkalasini aralashtirib yubormang!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end wrap -->
+
+<div class="gl"></div>
+
+<!-- ===== 1000 WORDS SECTION ===== -->
+<div class="wrap words-section" id="words">
+  <div class="sec-head">
+    <div class="sec-label">🔤 1000 ta so'z</div>
+    <h2>So'z turkumlari — tilning skeleti</h2>
+    <p>Ularsiz fikrni tushuntirib bo'lmaydi — bu so'zlar barcha mavzularda kerak</p>
+  </div>
+
+  <div class="wcat-grid">
+
+    <div class="wcat">
+      <div class="wcat-head">
+        <div class="wcat-ico">⚡</div>
+        <div><h3>Fe'llar — Verbs</h3><div class="sub">Harakatlar va hodisalar</div></div>
+      </div>
+      <div class="pills">
+        <span class="pill">be <span>— bo'lmoq</span></span>
+        <span class="pill">have <span>— ega bo'lmoq</span></span>
+        <span class="pill">do <span>— qilmoq</span></span>
+        <span class="pill">go <span>— bormoq</span></span>
+        <span class="pill">say <span>— aytmoq</span></span>
+        <span class="pill">get <span>— olmoq</span></span>
+        <span class="pill">make <span>— yasamoq</span></span>
+        <span class="pill">know <span>— bilmoq</span></span>
+        <span class="pill">think <span>— o'ylamoq</span></span>
+        <span class="pill">take <span>— olmoq</span></span>
+        <span class="pill">see <span>— ko'rmoq</span></span>
+        <span class="pill">come <span>— kelmoq</span></span>
+        <span class="pill">want <span>— xohlamoq</span></span>
+        <span class="pill">look <span>— qaramoq</span></span>
+        <span class="pill">use <span>— ishlatmoq</span></span>
+        <span class="pill">work <span>— ishlаmoq</span></span>
+        <span class="pill">give <span>— bermoq</span></span>
+        <span class="pill">find <span>— topmoq</span></span>
+        <span class="pill">tell <span>— aytmoq</span></span>
+        <span class="pill">ask <span>— so'ramoq</span></span>
+        <span class="pill">feel <span>— his qilmoq</span></span>
+        <span class="pill">try <span>— urinmoq</span></span>
+        <span class="pill">leave <span>— ketmoq</span></span>
+        <span class="pill">call <span>— chaqirmoq</span></span>
+        <span class="pill">keep <span>— saqlamoq</span></span>
+        <span class="pill">let <span>— ruxsat bermoq</span></span>
+        <span class="pill">begin <span>— boshlamoq</span></span>
+        <span class="pill">show <span>— ko'rsatmoq</span></span>
+        <span class="pill">hear <span>— eshitmoq</span></span>
+        <span class="pill">play <span>— o'ynamoq</span></span>
+        <span class="pill">run <span>— yugurmoq</span></span>
+        <span class="pill">move <span>— harakatlanmoq</span></span>
+        <span class="pill">live <span>— yashamoq</span></span>
+        <span class="pill">believe <span>— ishonmoq</span></span>
+        <span class="pill">hold <span>— ushlamoq</span></span>
+        <span class="pill">bring <span>— olib kelmoq</span></span>
+        <span class="pill">write <span>— yozmoq</span></span>
+        <span class="pill">read <span>— o'qimoq</span></span>
+        <span class="pill">spend <span>— sarflamoq</span></span>
+        <span class="pill">help <span>— yordam bermoq</span></span>
+      </div>
+    </div>
+
+    <div class="wcat">
+      <div class="wcat-head">
+        <div class="wcat-ico">🧱</div>
+        <div><h3>Otlar — Nouns</h3><div class="sub">Narsalar, odamlar, joylar</div></div>
+      </div>
+      <div class="pills">
+        <span class="pill">time <span>— vaqt</span></span>
+        <span class="pill">year <span>— yil</span></span>
+        <span class="pill">people <span>— odamlar</span></span>
+        <span class="pill">way <span>— yo'l, usul</span></span>
+        <span class="pill">day <span>— kun</span></span>
+        <span class="pill">man <span>— erkak/odam</span></span>
+        <span class="pill">thing <span>— narsa</span></span>
+        <span class="pill">world <span>— dunyo</span></span>
+        <span class="pill">life <span>— hayot</span></span>
+        <span class="pill">hand <span>— qo'l</span></span>
+        <span class="pill">part <span>— qism</span></span>
+        <span class="pill">child <span>— bola</span></span>
+        <span class="pill">eye <span>— ko'z</span></span>
+        <span class="pill">place <span>— joy</span></span>
+        <span class="pill">face <span>— yuz</span></span>
+        <span class="pill">home <span>— uy</span></span>
+        <span class="pill">work <span>— ish</span></span>
+        <span class="pill">money <span>— pul</span></span>
+        <span class="pill">water <span>— suv</span></span>
+        <span class="pill">food <span>— taom</span></span>
+        <span class="pill">school <span>— maktab</span></span>
+        <span class="pill">city <span>— shahar</span></span>
+        <span class="pill">country <span>— mamlakat</span></span>
+        <span class="pill">name <span>— ism</span></span>
+        <span class="pill">book <span>— kitob</span></span>
+        <span class="pill">word <span>— so'z</span></span>
+        <span class="pill">door <span>— eshik</span></span>
+        <span class="pill">room <span>— xona</span></span>
+        <span class="pill">car <span>— mashina</span></span>
+        <span class="pill">street <span>— ko'cha</span></span>
+        <span class="pill">phone <span>— telefon</span></span>
+        <span class="pill">problem <span>— muammo</span></span>
+        <span class="pill">idea <span>— g'oya</span></span>
+        <span class="pill">body <span>— tana</span></span>
+        <span class="pill">family <span>— oila</span></span>
+        <span class="pill">friend <span>— do'st</span></span>
+        <span class="pill">question <span>— savol</span></span>
+        <span class="pill">answer <span>— javob</span></span>
+        <span class="pill">number <span>— raqam</span></span>
+        <span class="pill">night <span>— kecha</span></span>
+      </div>
+    </div>
+
+    <div class="wcat">
+      <div class="wcat-head">
+        <div class="wcat-ico">🎨</div>
+        <div><h3>Sifatlar — Adjectives</h3><div class="sub">Belgilar va xususiyatlar</div></div>
+      </div>
+      <div class="pills">
+        <span class="pill">good <span>— yaxshi</span></span>
+        <span class="pill">new <span>— yangi</span></span>
+        <span class="pill">first <span>— birinchi</span></span>
+        <span class="pill">last <span>— oxirgi</span></span>
+        <span class="pill">long <span>— uzun</span></span>
+        <span class="pill">great <span>— ajoyib</span></span>
+        <span class="pill">little <span>— kichkina</span></span>
+        <span class="pill">own <span>— o'z</span></span>
+        <span class="pill">other <span>— boshqa</span></span>
+        <span class="pill">old <span>— eski/qari</span></span>
+        <span class="pill">right <span>— to'g'ri</span></span>
+        <span class="pill">big <span>— katta</span></span>
+        <span class="pill">high <span>— baland</span></span>
+        <span class="pill">different <span>— boshqacha</span></span>
+        <span class="pill">small <span>— kichik</span></span>
+        <span class="pill">large <span>— katta, ulkan</span></span>
+        <span class="pill">next <span>— keyingi</span></span>
+        <span class="pill">early <span>— erta</span></span>
+        <span class="pill">young <span>— yosh</span></span>
+        <span class="pill">important <span>— muhim</span></span>
+        <span class="pill">real <span>— haqiqiy</span></span>
+        <span class="pill">best <span>— eng yaxshi</span></span>
+        <span class="pill">free <span>— bepul/erkin</span></span>
+        <span class="pill">nice <span>— yoqimli</span></span>
+        <span class="pill">happy <span>— xursand</span></span>
+        <span class="pill">sure <span>— ishonchli</span></span>
+        <span class="pill">hard <span>— qiyin/qattiq</span></span>
+        <span class="pill">easy <span>— oson</span></span>
+        <span class="pill">beautiful <span>— chiroyli</span></span>
+        <span class="pill">hot <span>— issiq</span></span>
+        <span class="pill">cold <span>— sovuq</span></span>
+        <span class="pill">full <span>— to'liq</span></span>
+        <span class="pill">open <span>— ochiq</span></span>
+        <span class="pill">close <span>— yaqin/yopiq</span></span>
+        <span class="pill">fast <span>— tez</span></span>
+        <span class="pill">slow <span>— sekin</span></span>
+        <span class="pill">safe <span>— xavfsiz</span></span>
+        <span class="pill">clean <span>— toza</span></span>
+        <span class="pill">busy <span>— band</span></span>
+        <span class="pill">ready <span>— tayyor</span></span>
+      </div>
+    </div>
+
+    <div class="wcat">
+      <div class="wcat-head">
+        <div class="wcat-ico">🔗</div>
+        <div><h3>Olmosh va Bog'lovchilar</h3><div class="sub">Pronouns & Conjunctions</div></div>
+      </div>
+      <div class="pills">
+        <span class="pill">I <span>— men</span></span>
+        <span class="pill">you <span>— sen/siz</span></span>
+        <span class="pill">he <span>— u (erkak)</span></span>
+        <span class="pill">she <span>— u (ayol)</span></span>
+        <span class="pill">it <span>— u (narsa)</span></span>
+        <span class="pill">we <span>— biz</span></span>
+        <span class="pill">they <span>— ular</span></span>
+        <span class="pill">my <span>— mening</span></span>
+        <span class="pill">your <span>— sening/sizning</span></span>
+        <span class="pill">his <span>— uning (erkak)</span></span>
+        <span class="pill">her <span>— uning (ayol)</span></span>
+        <span class="pill">our <span>— bizning</span></span>
+        <span class="pill">their <span>— ularning</span></span>
+        <span class="pill">this <span>— bu</span></span>
+        <span class="pill">that <span>— u / o'sha</span></span>
+        <span class="pill">these <span>— bular</span></span>
+        <span class="pill">those <span>— ular (uzoq)</span></span>
+        <span class="pill">and <span>— va</span></span>
+        <span class="pill">but <span>— lekin</span></span>
+        <span class="pill">or <span>— yoki</span></span>
+        <span class="pill">because <span>— chunki</span></span>
+        <span class="pill">if <span>— agar</span></span>
+        <span class="pill">when <span>— qachon</span></span>
+        <span class="pill">so <span>— shuning uchun</span></span>
+        <span class="pill">although <span>— garchi</span></span>
+        <span class="pill">while <span>— ... vaqtda</span></span>
+        <span class="pill">before <span>— oldin</span></span>
+        <span class="pill">after <span>— keyin</span></span>
+        <span class="pill">very <span>— juda</span></span>
+        <span class="pill">also <span>— ham</span></span>
+        <span class="pill">just <span>— hozirgina/faqat</span></span>
+        <span class="pill">now <span>— hozir</span></span>
+        <span class="pill">still <span>— hali ham</span></span>
+        <span class="pill">already <span>— allaqachon</span></span>
+        <span class="pill">never <span>— hech qachon</span></span>
+        <span class="pill">always <span>— doim</span></span>
+        <span class="pill">sometimes <span>— ba'zan</span></span>
+        <span class="pill">again <span>— yana</span></span>
+        <span class="pill">here <span>— bu yerda</span></span>
+        <span class="pill">there <span>— u yerda</span></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="gl"></div>
+
+<footer>
+  <p>🌊 Ingliz tili o'rganish — <em>bitta so'z, bitta mavzu, bitta kun</em> — bir oyda natija!</p>
+</footer>
+
+<script>
+function showTab(i) {
+  document.querySelectorAll('.topic-panel').forEach((p,idx) => {
+    p.classList.toggle('on', idx === i);
+  });
+  document.querySelectorAll('.ttab').forEach((t,idx) => {
+    t.classList.toggle('on', idx === i);
+  });
+  document.getElementById('topics').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
